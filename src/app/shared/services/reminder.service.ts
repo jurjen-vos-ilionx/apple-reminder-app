@@ -19,7 +19,7 @@ export class ReminderService {
 	private filterReminders(ref: CollectionReference, filter: string) {
 		switch (filter) {
 			case 'today':
-				return ref.where('date', '==', new Date().toLocaleDateString());
+				return ref.where('date', '==', new Date().toLocaleDateString()).where('done', '==', false);
 			case 'flagged':
 				return ref.where('flagged', '==', true);
 			case 'scheduled':

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Reminder } from '../models/reminder';
-import { ReminderService } from '../services/reminder.service';
+import { Reminder } from '../../shared/models/reminder';
+import { ReminderService } from '../../shared/services/reminder.service';
 
 @Component({
 	selector: 'app-reminder-menu',

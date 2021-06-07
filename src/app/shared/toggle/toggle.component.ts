@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Option } from 'src/app/models/option';
+import { Option } from '../models/option';
 
 @Component({
 	selector: 'app-toggle',

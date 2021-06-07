@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ReminderService } from '../services/reminder.service';
+import { ReminderService } from '../../shared/services/reminder.service';
 
 @Component({
-	selector: 'app-reminder-type',
-	templateUrl: './reminder-type.component.html',
-	styleUrls: ['./reminder-type.component.scss'],
+	selector: 'app-nav-item',
+	templateUrl: './nav-item.component.html',
+	styleUrls: ['./nav-item.component.scss'],
 })
-export class ReminderTypeComponent implements OnInit {
+export class NavItemComponent implements OnInit {
 	@Input() title!: string;
 	@Input() icon!: string;
 	@Input() theme!: string;

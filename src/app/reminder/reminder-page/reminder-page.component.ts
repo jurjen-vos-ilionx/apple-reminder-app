@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Reminder } from '../models/reminder';
-import { ReminderService } from '../services/reminder.service';
+import { Reminder } from '../../shared/models/reminder';
+import { ReminderService } from '../../shared/services/reminder.service';
 
 @Component({
 	selector: 'app-reminder-page',
@@ -20,7 +19,6 @@ export class ReminderPageComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private reminderService: ReminderService,
-		private fireStore: AngularFirestore
 	) {}
 
 	ngOnInit(): void {

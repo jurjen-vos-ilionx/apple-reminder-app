@@ -7,17 +7,17 @@ import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './nav/navbar.component';
-import { ReminderTypeComponent } from './reminder-type/reminder-type.component';
-import { ReminderPageComponent } from './reminder-page/reminder-page.component';
+import { NavbarComponent } from './nav/navbar/navbar.component';
+import { ReminderPageComponent } from './reminder/reminder-page/reminder-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DateNamePipe } from './pipes/date-name.pipe';
+import { DateNamePipe } from './shared/pipes/date-name.pipe';
 import { DatePipe } from '@angular/common';
-import { ReminderComponent } from './reminder/reminder.component';
+import { ReminderComponent } from './reminder/reminder-item/reminder-item.component';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { ToggleComponent } from './shared/toggle/toggle.component';
-import { ReminderMenuComponent } from './reminder-menu/reminder-menu.component';
+import { ReminderMenuComponent } from './reminder/reminder-menu/reminder-menu.component';
+import { NavItemComponent } from './nav/nav-item/nav-item.component';
 
 const reminderTypes = [
 	{
@@ -55,12 +55,12 @@ const routes: Routes = [
 	declarations: [
 		AppComponent,
 		NavbarComponent,
-		ReminderTypeComponent,
+		NavItemComponent,
 		ReminderPageComponent,
 		DateNamePipe,
 		ReminderComponent,
 		ToggleComponent,
-  ReminderMenuComponent,
+		ReminderMenuComponent,
 	],
 	imports: [
 		FormsModule,

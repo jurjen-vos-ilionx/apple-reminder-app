@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReminderComponent } from './reminder.component';
+import { ReminderComponent } from './reminder-item.component';
 
 describe('ReminderAddComponent', () => {
   let component: ReminderComponent;

@@ -1,15 +1,15 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Option } from '../models/option';
-import { Reminder } from '../models/reminder';
-import { ReminderService } from '../services/reminder.service';
+import { Option } from '../../shared/models/option';
+import { Reminder } from '../../shared/models/reminder';
+import { ReminderService } from '../../shared/services/reminder.service';
 import { add, format } from 'date-fns';
 
 type State = 'adding' | 'editing' | 'finished' | string;
 
 @Component({
-	selector: 'app-reminder',
-	templateUrl: './reminder.component.html',
-	styleUrls: ['./reminder.component.scss'],
+	selector: 'app-reminder-item',
+	templateUrl: './reminder-item.component.html',
+	styleUrls: ['./reminder-item.component.scss'],
 })
 export class ReminderComponent implements OnInit, AfterViewInit {
 	@ViewChild('titleInput') titleInput!: ElementRef;

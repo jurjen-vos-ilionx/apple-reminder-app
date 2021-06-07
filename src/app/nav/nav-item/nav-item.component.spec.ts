@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReminderTypeComponent } from './reminder-type.component';
+import { NavItemComponent } from './nav-item.component';
 
 describe('ReminderTypeComponent', () => {
-  let component: ReminderTypeComponent;
-  let fixture: ComponentFixture<ReminderTypeComponent>;
+  let component: NavItemComponent;
+  let fixture: ComponentFixture<NavItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReminderTypeComponent ]
+      declarations: [ NavItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReminderTypeComponent);
+    fixture = TestBed.createComponent(NavItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
