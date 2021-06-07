@@ -1,0 +1,31 @@
+:host-context {
+	flex-grow: 1;
+}
+
+.btn--add {
+	$bg-color: #d5d5d5;
+    $size: 27px;
+    $pos: 10px;
+
+	position: absolute;
+	top: $pos;
+	right: $pos;
+	padding: 0;
+	width: $size;
+	height: $size;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+
+	&:hover,
+	&:focus {
+		background-color: lighten($bg-color, 10%);
+		box-shadow: none;
+	}
+
+	&:active {
+		background-color: lighten($bg-color, 5%);
+		outline: none;
+	}
+}

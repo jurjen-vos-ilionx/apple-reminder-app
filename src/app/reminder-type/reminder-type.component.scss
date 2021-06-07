@@ -1,0 +1,39 @@
+:host-context {
+	width: 100%;
+}
+
+.reminder-type {
+	&__icon-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		width: 25px;
+		height: 25px;
+		background-color: var(--theme, var(--color-primary));
+		transition: background-color 100ms ease;
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-white);
+		font-size: 0.85rem;
+		transition: color 100ms ease;
+	}
+
+	&__title {
+		font-size: 0.75rem;
+	}
+
+	:host.link-active & {
+		&__icon-wrapper {
+			background-color: white;
+		}
+
+        &__icon {
+			color: var(--theme);
+		}
+	}
+}

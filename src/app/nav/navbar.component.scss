@@ -1,0 +1,46 @@
+:host-context {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	max-width: 300px;
+}
+
+.navbar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #f0f0f0;
+	padding: 30px 15px 15px;
+
+	&__list {
+		width: 100%;
+	}
+
+	&__link {
+        $bg-color: #d5d5d5;
+
+		display: flex;
+		background-color: $bg-color;
+		padding: 7px;
+		border-radius: 12px;
+		text-decoration: none;
+		color: var(--color-base);
+		transition: background-color 100ms ease, color 100ms ease;
+
+		&:hover,
+		&:focus {
+			background-color: darken($bg-color, 2%);
+		}
+
+        &:active {
+            background-color: darken($bg-color, 5%);
+        }
+	}
+
+	&__link.active {
+		background-color: var(--theme);
+		color: var(--color-white);
+	}
+}

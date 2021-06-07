@@ -1,0 +1,59 @@
+<div class="navbar align-items-start justify-content-center">
+	<div class="navbar__list row gy-2 gx-2">
+		<div class="col-6">
+			<a routerLink="/today" routerLinkActive="active" class="navbar__link" style="--theme: var(--color-primary)">
+				<app-reminder-type
+					title="Today"
+					theme="primary"
+					icon="calendar-date"
+					routerLinkActive="link-active"
+				></app-reminder-type>
+			</a>
+		</div>
+		<div class="col-6">
+			<a
+				routerLink="/scheduled"
+				routerLinkActive="active"
+				class="navbar__link"
+				style="--theme: var(--color-secondary)"
+			>
+				<app-reminder-type
+					title="Scheduled"
+					theme="secondary"
+					icon="calendar-week"
+					routerLinkActive="link-active"
+				></app-reminder-type>
+			</a>
+		</div>
+		<div class="col-6">
+			<a
+				routerLink="/all"
+				routerLinkActive="active"
+				class="navbar__link"
+				style="--theme: var(--color-quaternary)"
+			>
+				<app-reminder-type
+					title="All"
+					theme="quaternary"
+					icon="inbox-fill"
+					routerLinkActive="link-active"
+				></app-reminder-type>
+			</a>
+		</div>
+		<div class="col-6">
+			<a
+				routerLink="/flagged"
+				routerLinkActive="active"
+				class="navbar__link"
+				style="--theme: var(--color-tertiary)"
+			>
+				<app-reminder-type
+					title="Flagged"
+					theme="tertiary"
+					icon="flag-fill"
+					routerLinkActive="link-active"
+				></app-reminder-type>
+			</a>
+		</div>
+	</div>
+</div>

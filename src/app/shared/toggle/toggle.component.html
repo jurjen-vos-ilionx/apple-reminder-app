@@ -1,0 +1,60 @@
+<div class="toggle" #toggle (clickOutside)="onClickOutside($event)">
+	<button
+		class="
+			toggle__btn
+			btn btn-link
+			badge
+			bg-offset-light
+			text-base
+			d-flex
+			align-items-center
+			fw-normal
+			text-decoration-none
+		"
+		type="button"
+		(click)="toggleMenu(true); input.select()"
+	>
+		<div class="row align-items-center gx-2">
+			<div class="col-auto">
+				<i class="bi bi-{{ icon }}" [class.text-primary]="toggled"></i>
+			</div>
+			<div class="col-auto">
+				<input
+					class="form-control fs-7 op-60 w-auto p-0 border-0"
+					type="text"
+					name="date"
+					[value]="title"
+					#input
+					[size]="3"
+					(change)="selectOption({ type: type, title: '', value: input.value })"
+					(focus)="input.select()"
+				/>
+			</div>
+			<div class="col-auto">
+				<span (click)="selectOption({ type: type, title: '', value: '' })">
+					<i class="bi bi-x-lg fs-8 ms-2 op-50"></i>
+				</span>
+			</div>
+		</div>
+	</button>
+	<div class="toggle__menu" *ngIf="toggled">
+		<p class="op-60 fs-7 fw-medium mb-2">Suggestions</p>
+		<ul class="toggle__list list-group" *ngIf="options && options.length > 0">
+			<li
+				class="list-group-item bg-transparent border-0 p-0"
+				*ngFor="let option of options; let optionIndex = index"
+			>
+				<button
+					class="btn btn-link fs-7 text-reset text-decoration-none d-flex align-items-center text-start p-0"
+					(click)="selectOption(option)"
+				>
+					<i class="bi bi-{{ icon }} me-2 fs-6"></i>
+					<div class="d-flex flex-column">
+						<span class="mb-0">{{ option.title }}</span>
+						<span class="op-80">{{ option.value }}</span>
+					</div>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>

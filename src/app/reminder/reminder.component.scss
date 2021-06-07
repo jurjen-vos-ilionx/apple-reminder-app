@@ -1,0 +1,53 @@
+.reminder {
+	margin-top: -1px;
+	transition: background-color 100ms;
+
+	&__data {
+		font-size: 0.8rem;
+		margin-top: 2px;
+	}
+
+	&__checkbox {
+		margin-top: 3px;
+		border-radius: 50%;
+	}
+
+	&__menu {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 100ms ease, opacity 100ms ease;
+
+		&.hovered {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	&:hover &__menu {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.reminder__input {
+	border: none;
+	background: none;
+	padding: 0;
+
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+	&--title {
+		font-size: 0.8rem;
+	}
+
+	&--notes {
+		font-size: 0.75rem;
+	}
+}
+
+.reminder__action-btn {
+	line-height: 1;
+}

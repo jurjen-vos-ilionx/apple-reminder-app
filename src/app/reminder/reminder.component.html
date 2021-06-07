@@ -1,0 +1,142 @@
+<form #form class="reminder pt-2 px-3" (submit)="editReminder(newReminder)">
+	<div class="form-check mb-0">
+		<input
+			class="form-check-input reminder__checkbox cursor-pointer"
+			type="checkbox"
+			name="done"
+			id="done"
+			[value]="newReminder.done"
+			[checked]="newReminder.done"
+			[(ngModel)]="newReminder.done"
+			(change)="editReminder(newReminder)"
+		/>
+		<div class="d-flex flex-column">
+			<div class="d-flex align-items-center justify-content-between">
+				<input
+					type="text"
+					class="reminder__input reminder__input--title op-80"
+					#nameField="ngModel"
+					#titleInput
+					name="title"
+					id="title"
+					[(ngModel)]="newReminder.title"
+					(focus)="toggleState(newReminder.title ? 'editing' : 'adding')"
+				/>
+				<div class="d-flex align-items-center ms-auto">
+					<app-reminder-menu
+						class="reminder__menu {{ state === 'editing' && 'hovered' }}"
+						[theme]="theme"
+						[reminder]="reminder"
+						(toggleState)="toggleState($event)"
+					></app-reminder-menu>
+					<i *ngIf="newReminder.flagged" class="bi bi-flag-fill ms-3 text-tertiary fs-7"></i>
+				</div>
+			</div>
+			<input
+				type="text"
+				class="reminder__input reminder__input--notes op-80"
+				placeholder="notes"
+				name="notes"
+				id="notes"
+				[(ngModel)]="newReminder.notes"
+				(focus)="toggleState(newReminder.title ? 'editing' : 'adding')"
+				*ngIf="reminder.notes || state === 'adding' || state === 'editing'"
+			/>
+			<div class="border-bottom pb-2">
+				<div
+					class="row align-items-center gx-1 mt-1 op-70"
+					*ngIf="this.state === 'finished' && newReminder.date"
+				>
+					<div class="col-auto">
+						<p class="mb-0 fs-7">
+							{{ newReminder.date | dateName: 'dd/MM/yyyy' }}
+						</p>
+					</div>
+					<div class="col-auto" *ngIf="newReminder.time">
+						<p class="mb-0 fs-7">- {{ newReminder.time }}</p>
+					</div>
+				</div>
+
+				<!-- State = adding | 'editing' -->
+				<div class="row gx-2 align-items-center mt-2" *ngIf="state === 'adding' || state === 'editing'">
+					<div class="col-auto">
+						<app-toggle
+							icon="calendar-check"
+							type="date"
+							[title]="newReminder.date ? newReminder.date : 'Add date'"
+							[options]="dateOptions"
+							(updateOption)="updateOption($event)"
+						></app-toggle>
+					</div>
+					<div class="col-auto">
+						<app-toggle
+							icon="clock"
+							type="time"
+							[title]="newReminder.time ? newReminder.time : 'Add time'"
+							[options]="timeOptions"
+							(updateOption)="updateOption($event)"
+						></app-toggle>
+					</div>
+					<div class="col-auto">
+						<button
+							class="
+								btn btn-link
+								badge
+								bg-offset-light
+								text-base
+								d-flex
+								align-items-center
+								fw-normal
+								text-decoration-none
+							"
+							type="button"
+							(click)="toggleFlagged()"
+						>
+							<i class="bi {{ newReminder.flagged ? 'bi-flag-fill' : 'bi-flag' }} text-tertiary fs-7"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- State = adding | editing -->
+			<div class="row gx-2 align-items-center mt-2 mb-2" *ngIf="state === 'adding' || state === 'editing'">
+				<div class="col-auto">
+					<button
+						class="
+							reminder__action-btn
+							btn btn-primary
+							text-white
+							d-flex
+							align-items-center
+							fw-normal
+							fs-7
+							px-2
+							py-1
+						"
+						type="submit"
+					>
+						<span class="">Save</span>
+					</button>
+				</div>
+				<div class="col-auto">
+					<button
+						class="
+							reminder__action-btn
+							btn btn-offset-light
+							d-flex
+							align-items-center
+							fw-normal
+							fs-7
+							px-2
+							py-1
+						"
+						type="button"
+						(click)="newReminder.title ? cancelReminder() : deleteReminder(newReminder)"
+					>
+						<span class="op-60">Cancel</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

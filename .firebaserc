@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "apple-reminder-app"
+  },
+  "targets": {
+    "apple-reminder-app": {
+      "hosting": {
+        "apple-reminder-app": [
+          "apple-reminder-app"
+        ]
+      }
+    }
+  }
+}

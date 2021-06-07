@@ -1,0 +1,35 @@
+<div class="menu d-flex" (clickOutside)="onClickOutside()">
+	<button class="menu__togle btn btn-link p-0 lh-1" type="button" (click)="toggleMenu()">
+		<i class="bi bi-info-circle text-{{ theme }}"></i>
+	</button>
+	<div class="menu__body" *ngIf="menuOpen">
+		<p class="op-60 fs-7 fw-medium mb-2">What do you want to do?</p>
+		<ul class="toggle__list list-group">
+			<li class="list-group-item bg-transparent border-0 p-0">
+				<button
+					type="button"
+					class="btn btn-link fs-7 text-reset text-decoration-none d-flex align-items-center text-start p-0"
+				>
+					<span class="mb-0">Mark as complete</span>
+				</button>
+			</li>
+			<li class="list-group-item bg-transparent border-0 p-0">
+				<button
+					type="button"
+					class="btn btn-link fs-7 text-reset text-decoration-none d-flex align-items-center text-start p-0"
+				>
+					<span class="mb-0">Flag</span>
+				</button>
+			</li>
+			<li class="list-group-item bg-transparent border-0 p-0">
+				<button
+					type="button"
+					class="btn btn-link fs-7 text-reset text-decoration-none d-flex align-items-center text-start p-0"
+					(click)="deleteReminder()"
+				>
+					<span class="mb-0">Delete</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>

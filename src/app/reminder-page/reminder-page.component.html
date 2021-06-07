@@ -1,0 +1,14 @@
+<div class="h-100 position-relative pt-4">
+	<h3 class="text-{{ theme }} fw-bolder px-3 pt-3 text-capitalize">{{ title }}</h3>
+	<div *ngIf="reminders.length === 0" class="position-absolute top-50 start-50 translate-middle">
+		<p class="fs-5 op-50">All Items Completed</p>
+	</div>
+	<div class="row g-0 mt-2">
+		<div class="col-12" *ngFor="let reminder of reminders">
+			<app-reminder [reminder]="reminder" [theme]="theme"></app-reminder>
+		</div>
+	</div>
+</div>
+<button class="btn btn--add" (click)="addReminder()">
+	<i class="bi bi-plus op-20 fs-3"></i>
+</button>
